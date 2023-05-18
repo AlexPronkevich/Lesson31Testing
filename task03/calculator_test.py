@@ -8,15 +8,21 @@ class CalculatorTest(unittest.TestCase):
     # act     экшен
     # assert   утверждение
 
+    def setUp(self):
+        # print("***** setUp *****")
+        self.calc = Calculator()
 
+    def tearDown(self):
+        # print("***** tearDown *****")
+        del self.calc
 
     def testAddPositive(self):
         a = 5
         b = 6
         expected = 11  # блок подготовки данных
 
-        calc = Calculator()           # Создание переменной в динамическом методе
-        actual = calc.add(a, b)
+        # calc = Calculator()  # Создание переменной в динамическом методе
+        actual = self.calc.add(a, b)
 
         self.assertEqual(expected, actual)
 
@@ -25,8 +31,8 @@ class CalculatorTest(unittest.TestCase):
         b = 6
         expected = -1  # блок подготовки данных
 
-        calc = Calculator()
-        actual = calc.sub(a, b)
+        # calc = Calculator()
+        actual = self.calc.sub(a, b)
 
         self.assertEqual(expected, actual)
 
@@ -35,8 +41,8 @@ class CalculatorTest(unittest.TestCase):
         b = 6
         expected = 30  # блок подготовки данных
 
-        calc = Calculator()
-        actual = calc.mul(a, b)
+        # calc = Calculator()
+        actual = self.calc.mul(a, b)
 
         self.assertEqual(expected, actual)
 
@@ -45,8 +51,8 @@ class CalculatorTest(unittest.TestCase):
         b = 2
         expected = 5  # блок подготовки данных
 
-        calc = Calculator()
-        actual = calc.div(a, b)
+        # calc = Calculator()
+        actual = self.calc.div(a, b)
 
         self.assertEqual(expected, actual)
 
